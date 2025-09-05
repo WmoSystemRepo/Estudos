@@ -1,0 +1,7 @@
+Linux
+ #Username:mendes
+ #Passoword: wmo123
+ 
+RabbitMQ Contener senha padrão
+ #Username: guest
+ #Passoword: guest

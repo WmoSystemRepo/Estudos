@@ -1,0 +1,6 @@
+comandos docke compose 
+
+docker compose down -v   # derruba qualquer coisa antiga e limpa volumes
+docker compose pull      # baixa as imagens
+docker compose up -d     # sobe em background
+docker compose ps        # lista serviços ativos
