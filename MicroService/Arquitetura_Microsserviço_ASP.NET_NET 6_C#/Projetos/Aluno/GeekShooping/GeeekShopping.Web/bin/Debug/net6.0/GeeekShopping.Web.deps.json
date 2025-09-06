@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GeeekShopping.Web/1.0.0": {
+        "runtime": {
+          "GeeekShopping.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GeeekShopping.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
