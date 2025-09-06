@@ -1,0 +1,86 @@
+## Ignore arquivos temporários do Visual Studio e build
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+## Arquivos gerados por test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## Arquivos de publish
+*.Publish.xml
+*.pubxml
+*.publishproj
+
+## Caches de pacotes
+.nuget/
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Arquivos do Rider / VS Code / Resharper
+.idea/
+*.DotSettings.user
+.vscode/
+
+## Arquivos de banco local (LocalDB, SQLite, etc.)
+*.mdf
+*.ldf
+*.ndf
+
+## Arquivos de coverage e profiling
+*.coverage
+*.coveragexml
+*.vsp
+*.vspx
+*.sap
+*.opendb
+*.opencoverage
+
+## Arquivos temporários do Windows
+[Tt]humbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+## Arquivos de logs
+*.log
+
+## Arquivos de pacotes do Azure
+*.azurePubxml
+*.azurePubxml.user
+
+## Configs sensíveis
+*.dotCover
+*.userprefs
+*.DS_Store
+
+## Arquivos do IIS Express
+.vsconfig
+.vspscc
+*.vsidx
+iisexpress/
+
+## Outros
+*.bak
+*.swp
+*.tmp
+*.temp

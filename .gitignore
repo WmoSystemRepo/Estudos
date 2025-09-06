@@ -1,0 +1,11 @@
+*.exe
+*.dll
+*.cache
+*.db
+*.vsidx
+MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Aluno/Calculator/.vs/RestWithASPNETUdemy/v16/.suo
+MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Aluno/Calculator/.vs/RestWithASPNETUdemy/v17/.suo
+*.v2
+MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Exemplos/S05_DEPOIS_ErudioMicroservices.NET6-REST_Recap/01_RestWithASPNETUdemy_ScaffoldViaVisualStudio/RestWithASPNETUdemy/.vs/RestWithASPNETUdemy/v16/.suo
+MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Exemplos/S05_DEPOIS_ErudioMicroservices.NET6-REST_Recap/02_RestWithASPNETUdemy_Calculator/RestWithASPNETUdemy/.vs/RestWithASPNETUdemy/v16/.suo
+MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Exemplos/S05_DEPOIS_ErudioMicroservices.NET6-REST_Recap/03_RestWithASPNETUdemy_UsingDiferentVerbs/RestWithASPNETUdemy/.vs/RestWithASPNETUdemy/v16/.suo
