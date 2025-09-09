@@ -67,3 +67,8 @@ MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Exemplos/S05_
 *.pdb
 /MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.Web/obj/Debug/net8.0/GeekShopping.Web.AssemblyInfo.cs
 /MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.Web/obj/Debug/net8.0/GeekShopping.Web.GeneratedMSBuildEditorConfig.editorconfig
+*.db-shm
+*.db-wal
+/MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.Web/obj/GeekShopping.Web.csproj.nuget.dgspec.json
+/MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.Web/obj/GeekShopping.Web.csproj.nuget.g.props
+/MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.Web/obj/project.assets.json
