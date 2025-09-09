@@ -11,7 +11,7 @@ namespace GeekShopping.ProductAPI.Repository
         private readonly MySqlContext _context;
         private IMapper _mapper;
 
-        public ProductRepository(MySqlContext context, IMapper mapper )
+        public ProductRepository(MySqlContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -20,30 +20,55 @@ namespace GeekShopping.ProductAPI.Repository
         public async Task<IEnumerable<ProductVO>> FindAll()
         {
             List<Product> products = await _context.Products.ToListAsync();
-            return _mapper.Map<IEnumerable<ProductVO>>( products );
+            return _mapper.Map<IEnumerable<ProductVO>>(products);
         }
 
         public async Task<ProductVO> FindById(long id)
         {
-            Product products = 
+            Product products =
                 await _context.Products.Where(p => p.Id == id)
                 .FirstOrDefaultAsync();
 
             return _mapper.Map<ProductVO>(products);
         }
 
-        public Task<IEnumerable<ProductVO>> Create(ProductVO vo)
+        public async Task<ProductVO> Create(ProductVO vo)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<Product>(vo);
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<ProductVO>(product);
         }
-                public Task<IEnumerable<ProductVO>> Update(ProductVO vo)
+        public async Task<ProductVO> Update(ProductVO vo)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<Product>(vo);
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<ProductVO>(product);
         }
 
-        public Task<IEnumerable<ProductVO>> Delete(long id)
+        public async Task<bool> Delete(long id)
         {
-            throw new NotImplementedException();
-        }    
+            try
+            {
+                Product products =
+                await _context.Products.Where(p => p.Id == id)
+                .FirstOrDefaultAsync();
+
+                if (products == null)
+                {
+                    return false;
+                }
+
+                _context.Products.Remove(products);
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
