@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C4301396-FA41-4D78-A160-055746121B3E}|GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj|c:\\users\\user\\desktop\\clones\\wmo\\estudos\\microservice\\arquitetura_microsservi\u00E7o_asp.net_net 6_c#\\projetos\\aluno\\geekshooping\\geekshopping.productapi\\geekshopping.productapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C4301396-FA41-4D78-A160-055746121B3E}|GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj|solutionrelative:geekshopping.productapi\\geekshopping.productapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C4301396-FA41-4D78-A160-055746121B3E}|GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj|c:\\users\\user\\desktop\\clones\\wmo\\estudos\\microservice\\arquitetura_microsservi\u00E7o_asp.net_net 6_c#\\projetos\\aluno\\geekshooping\\geekshopping.productapi\\model\\context\\mysqlcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C4301396-FA41-4D78-A160-055746121B3E}|GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj|solutionrelative:geekshopping.productapi\\model\\context\\mysqlcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -34,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Program.cs",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\Program.cs",
@@ -51,7 +55,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "GeekShopping.ProductAPI",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj",
+              "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj",
+              "RelativeToolTip": "GeekShopping.ProductAPI\\GeekShopping.ProductAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-06T18:05:36.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductAPI.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Model\\ProductAPI.cs",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\Model\\ProductAPI.cs",
@@ -59,12 +76,11 @@
               "RelativeToolTip": "GeekShopping.ProductAPI\\Model\\ProductAPI.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T16:29:16.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-06T16:29:16.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Model\\Product.cs",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\Model\\Product.cs",
@@ -76,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\appsettings.Development.json",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\appsettings.Development.json",
@@ -84,25 +100,24 @@
               "RelativeToolTip": "GeekShopping.ProductAPI\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-06T05:04:54.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-06T05:04:54.816Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MySqlContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Model\\Context\\MySqlContext.cs",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\Model\\Context\\MySqlContext.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Model\\Context\\MySqlContext.cs",
               "RelativeToolTip": "GeekShopping.ProductAPI\\Model\\Context\\MySqlContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T04:59:45.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Clones\\WMO\\Estudos\\MicroService\\Arquitetura_Microsservi\u00E7o_ASP.NET_NET 6_C#\\Projetos\\Aluno\\GeekShooping\\GeekShopping.ProductAPI\\Model\\Base\\BaseEntity.cs",
               "RelativeDocumentMoniker": "GeekShopping.ProductAPI\\Model\\Base\\BaseEntity.cs",
