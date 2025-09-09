@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeekShopping.ProductAPI.Model
 {
-    public class ProductAPI : BaseEntity
+    public class Product : BaseEntity
     {
         [Column("name")]
         [Required]
@@ -27,7 +27,5 @@ namespace GeekShopping.ProductAPI.Model
         [Column("image_url")]
         [StringLength(300)]
         public string ImageURL { get; set; }
-
-
     }
 }
