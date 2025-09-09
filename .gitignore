@@ -27,3 +27,7 @@ MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C\#/Projetos/Exemplos/S05_
 /MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/.vs/GeekShooping/v17/DocumentLayout.json
 /MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/.vs/GeekShooping/v17/.suo
 /MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeeekShopping.Web/obj/Debug/net8.0/GeeekShopping.Web.RazorAssemblyInfo.cs
+*.bin
+/MicroService/Arquitetura_Microsserviço_ASP.NET_NET 6_C#/Projetos/Aluno/GeekShooping/GeekShopping.ProductAPI/obj/Debug/net8.0/GeekShopping.ProductAPI.GeneratedMSBuildEditorConfig.editorconfig
+*.json
+*.txt
