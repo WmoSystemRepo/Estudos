@@ -9,6 +9,12 @@ namespace GeekShopping.Web.Services
         private readonly HttpClient _client;
         public const string BasePath = "api/v1/product";
 
+        public ProductService(HttpClient client)
+        {
+            _client = client ?? throw new
+                ArgumentNullException(nameof(_client));
+        }
+
         public async Task<IEnumerable<ProductModel>> FindAllProducts()
         {
             var reponse =  await _client.GetAsync(BasePath);
@@ -23,17 +29,42 @@ namespace GeekShopping.Web.Services
 
         public async Task<ProductModel> CreateProduct(ProductModel model)
         {
-            throw new NotImplementedException();
+            var reponse = await _client.PostAsJson(BasePath,model);
+            if (reponse.IsSuccessStatusCode)
+            {
+                 return await reponse.ReadContentAs<ProductModel>();
+            }
+            else
+            {
+                throw new Exception("Não foi possivel fazer o cadastro!");
+            }
         }
 
         public async Task<ProductModel> Update(ProductModel model)
         {
-            throw new NotImplementedException();
+            var reponse = await _client.PutAsJson(BasePath, model);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return await reponse.ReadContentAs<ProductModel>();
+            }
+            else
+            {
+                throw new Exception("Não foi possivel Atualizar o cadastro!");
+            }
         }
 
         public async Task<bool> DeleteProcductById(long id)
         {
-            throw new NotImplementedException();
+            var reponse = await _client.DeleteAsync($"{BasePath}/{id}");
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return await reponse.ReadContentAs<bool>();
+            }
+            else
+            {
+                throw new Exception("Não foi possivel Excluir o cadastro!");
+            }
         }
     }
 }

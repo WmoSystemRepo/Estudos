@@ -21,6 +21,7 @@ builder.Services.AddSingleton(mapper);
 // Registro do ProductRepository na DI
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+
 // Controllers e documentação Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
