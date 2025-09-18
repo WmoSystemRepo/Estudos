@@ -7,9 +7,9 @@ A navegação principal já começa pelo módulo **Básico → Avançado**. 🚀
 
 ## 📂 Estrutura do Repositório
 
-- 📘 [Básico → Avançado](./Basico_Avancado/Links.md)  
-- 📘 [Comandos](./README_Docker_Comandos.md)  
-- 📘 [Docker Resumo Estudo](./README_Docker_Resumo_Estudo.md)  
+- 📘 [Básico → Avançado](./DOCKER/Basico_Avancado/Links.md)  
+- 📘 [Comandos](./DOCKER/README_Docker_Comandos.md)  
+- 📘 [Docker Resumo Estudo](./DOCKER/README_Docker_Resumo_Estudo.md)  
 
 ---
 
