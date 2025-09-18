@@ -7,11 +7,9 @@ A navegação principal já começa pelo módulo **Básico → Avançado**. 🚀
 
 ## 📂 Estrutura do Repositório
 
-- 📘 [📎 Links de Estudo (Básico → Avançado)](./Basico_Avancado/Links.md)  
-- 📘 [Zero → Avançado](./Zero_Avancado)  
-- 📘 [README_Docker_Comandos](./README_Docker_Comandos.md)  
-- 📘 [README_Docker_Resumo_Estudo](./README_Docker_Resumo_Estudo.md)  
-- 📘 [Redmi_Underline_Docker_Documentacao_de_Estudo](./Redmi_Underline_Docker_Documentacao_de_Estudo.md)  
+- 📘 [Básico → Avançado](./Basico_Avancado/Links.md)  
+- 📘 [Comandos](./README_Docker_Comandos.md)  
+- 📘 [Docker Resumo Estudo](./README_Docker_Resumo_Estudo.md)  
 
 ---
 
