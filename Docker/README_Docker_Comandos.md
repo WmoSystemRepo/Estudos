@@ -1,32 +1,59 @@
 # 📦 Docker Commands — Guia Completo para CMD
 
-Este documento é um guia prático e organizado com os principais comandos do **Docker** que você pode rodar no **CMD** (Windows) ou terminal (Linux/Mac).
+Este documento é um guia prático, **profissional** e organizado com os principais comandos do **Docker** que você pode rodar no **CMD** (Windows) ou terminal (Linux/Mac).  
+Inclui exemplos, explicações, boas práticas e até fluxos ilustrativos para facilitar o aprendizado. 🚀
 
 ---
 
-## 🔹 Básico do Docker
+## 🐳 O que é o Docker?
+
+O **Docker** é uma plataforma open-source que facilita a criação, deploy e execução de aplicações em **containers**.  
+Um **container** é como uma "caixa isolada" que contém tudo que sua aplicação precisa para rodar: código, dependências, bibliotecas e configurações.
+
+🔑 **Benefícios principais:**
+- Portabilidade: roda em qualquer ambiente (Windows, Linux, Mac).
+- Escalabilidade: fácil de replicar e subir múltiplos containers.
+- Isolamento: evita conflitos de dependências entre projetos.
+
+---
+
+## 🔹 Fluxo Básico do Docker
+
+```mermaid
+flowchart LR
+    A[📥 Pull Imagem] --> B[📦 Criar Container]
+    B --> C[▶️ Rodar Container]
+    C --> D[🔍 Monitorar / Logs]
+    D --> E[🛑 Parar / Remover]
+```
+
+Esse fluxo mostra os passos comuns de uso no dia a dia.
+
+---
+
+## ⚙️ Comandos Básicos
 
 ### Verificar versão instalada
 ```sh
 docker --version
 ```
-Mostra a versão atual do Docker instalada na máquina.
+📌 Mostra a versão atual do Docker instalada na máquina.
 
 ### Verificar se o Docker está rodando
 ```sh
 docker info
 ```
-Exibe informações detalhadas sobre o daemon do Docker.
+📌 Exibe informações detalhadas sobre o daemon do Docker.
 
 ### Listar todos os comandos disponíveis
 ```sh
 docker --help
 ```
-Mostra todos os comandos principais e opções disponíveis.
+📌 Mostra todos os comandos principais e opções disponíveis.
 
 ---
 
-## 🔹 Imagens
+## 🖼️ Trabalhando com Imagens
 
 ### Baixar uma imagem
 ```sh
@@ -47,9 +74,14 @@ docker images
 docker rmi <image_id>
 ```
 
+### Inspecionar imagem
+```sh
+docker inspect <image_id>
+```
+
 ---
 
-## 🔹 Containers
+## 📦 Containers
 
 ### Criar e rodar um container
 ```sh
@@ -82,14 +114,24 @@ docker stop <container_id>
 docker start <container_id>
 ```
 
+### Reiniciar um container
+```sh
+docker restart <container_id>
+```
+
 ### Remover um container
 ```sh
 docker rm <container_id>
 ```
 
+### Acessar terminal do container
+```sh
+docker exec -it <container_id> bash
+```
+
 ---
 
-## 🔹 Volumes
+## 💾 Volumes (Persistência de Dados)
 
 ### Criar volume
 ```sh
@@ -106,9 +148,14 @@ docker volume ls
 docker volume rm <nome_volume>
 ```
 
+### Montar volume em container
+```sh
+docker run -d -v <nome_volume>:/caminho/no/container nginx
+```
+
 ---
 
-## 🔹 Redes
+## 🌐 Redes
 
 ### Listar redes
 ```sh
@@ -120,6 +167,11 @@ docker network ls
 docker network create <nome_rede>
 ```
 
+### Conectar container a uma rede
+```sh
+docker network connect <nome_rede> <container_id>
+```
+
 ### Remover rede
 ```sh
 docker network rm <nome_rede>
@@ -127,21 +179,28 @@ docker network rm <nome_rede>
 
 ---
 
-## 🔹 Logs e Execução
+## 📊 Logs e Monitoramento
 
 ### Ver logs de um container
 ```sh
 docker logs <container_id>
 ```
 
-### Acessar o terminal dentro de um container
+### Seguir logs em tempo real
 ```sh
-docker exec -it <container_id> bash
+docker logs -f <container_id>
+```
+
+### Ver consumo de recursos
+```sh
+docker stats
 ```
 
 ---
 
-## 🔹 Docker Compose
+## 🛠️ Docker Compose
+
+O **Docker Compose** permite orquestrar múltiplos containers usando um arquivo `docker-compose.yml`.
 
 ### Subir containers com `docker-compose.yml`
 ```sh
@@ -153,9 +212,14 @@ docker-compose up -d
 docker-compose down
 ```
 
+### Reconstruir serviços
+```sh
+docker-compose up --build -d
+```
+
 ---
 
-## 🔹 Limpeza
+## 🧹 Limpeza e Manutenção
 
 ### Remover containers parados
 ```sh
@@ -167,6 +231,11 @@ docker container prune
 docker image prune
 ```
 
+### Remover volumes não utilizados
+```sh
+docker volume prune
+```
+
 ### Remover tudo (containers, volumes, redes e imagens não utilizados)
 ```sh
 docker system prune -a
@@ -174,15 +243,22 @@ docker system prune -a
 
 ---
 
-## 📌 Dicas Extras
+## ✅ Boas Práticas
 
-- Sempre utilize **tags** nas imagens (`nginx:1.23`) ao invés de `latest` para garantir consistência.
-- Use `docker inspect <id>` para ver detalhes avançados sobre containers, imagens ou volumes.
-- Combine `docker ps` com `grep` para localizar containers específicos:
-  ```sh
-  docker ps | grep nginx
-  ```
+✔️ Sempre use **tags específicas** (`nginx:1.23`) em vez de `latest`.  
+✔️ Organize containers em **redes próprias** para cada projeto.  
+✔️ Use **volumes nomeados** em vez de paths absolutos quando possível.  
+✔️ Monitore com `docker stats` e `docker logs`.  
+✔️ Prefira `docker-compose` para projetos com múltiplos serviços.
 
 ---
 
-✍️ **Autor:** Documentação gerada para estudos e prática de Docker.
+## 📚 Recursos Extras
+
+- 📖 [Documentação Oficial do Docker](https://docs.docker.com/)
+- 🎥 [Playlist sobre Docker no YouTube (em Português)](https://www.youtube.com/playlist?list=PLf-O3X2-mxDlvXQGDvqetZ2x7Hm7JQ4g3)
+- 📦 [Docker Hub - Repositório de Imagens](https://hub.docker.com/)
+
+---
+
+✍️ **Autor:** Documentação gerada para estudos e prática de Docker, no estilo **profissional**.  
