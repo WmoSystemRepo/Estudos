@@ -8,10 +8,9 @@ services:
     environment:
       - BOOTSTRAP=1
     volumes:
-      - ./../:/app
-      - bundle_cache:/usr/local/bundle
-    depends_on:
-      - volume-restore
+      - ./../:/app # bind mount do projeto inteiro
+      - bundle_cache:/usr/local/bundle # gems persistentes
+      - app_data:/app/data # dados runtime persistentes
 
   node-18.12.1:
     build: ./node
@@ -23,48 +22,8 @@ services:
       - "3000:3000"
     volumes:
       - ./../:/app
-    depends_on:
-      - volume-restore
-
-  # Restaura volume no UP
-  volume-restore:
-    image: alpine
-    container_name: volume-restore
-    volumes:
-      - bundle_cache:/volume
-      - ./backups:/backup
-    entrypoint: /bin/sh
-    command:
-      - -c
-      - |
-        mkdir -p /backup
-        if [ -f /backup/backup1.tar.gz ]; then
-          echo '🔄 Restaurando de backup1.tar.gz'
-          cd /volume && tar -xzf /backup/backup1.tar.gz
-        elif [ -f /backup/backup2.tar.gz ]; then
-          echo '🔄 Restaurando de backup2.tar.gz'
-          cd /volume && tar -xzf /backup/backup2.tar.gz
-        else
-          echo '⚠️ Nenhum backup encontrado. Volume inicializado vazio.'
-        fi
-
-  # Gera backup sob demanda
-  volume-backup:
-    image: alpine
-    container_name: volume-backup
-    volumes:
-      - bundle_cache:/volume
-      - ./backups:/backup
-    entrypoint: /bin/sh
-    command:
-      - -c
-      - |
-        mkdir -p /backup
-        if [ -f /backup/backup1.tar.gz ]; then
-          mv /backup/backup1.tar.gz /backup/backup2.tar.gz
-        fi
-        echo '💾 Gerando backup1.tar.gz...'
-        cd /volume && tar -czf /backup/backup1.tar.gz .
+      - app_data:/app/data # compartilha dados runtime
 
 volumes:
   bundle_cache:
+  app_data:
