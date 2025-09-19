@@ -1,16 +1,24 @@
-# Imagem oficial do Ruby 3.2.2 (baseada em Debian)
 FROM ruby:3.2.2
 
-# Instalar pacotes adicionais (equivalente ao DevKit no Linux)
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libssl-dev \
-    libreadline-dev \
-    zlib1g-dev \
-    libyaml-dev \
-    sqlite3 libsqlite3-dev \
-    git \
+# Dependências para gems nativas
+RUN apt-get update -qq && apt-get install -y \
+    build-essential git libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Verificação
-RUN ruby -v
+# Gems no volume persistente e binários no PATH
+ENV BUNDLE_PATH=/usr/local/bundle \
+    BUNDLE_BIN=/usr/local/bundle/bin \
+    GEM_HOME=/usr/local/bundle \
+    PATH="/usr/local/bundle/bin:${PATH}"
+
+WORKDIR /app
+
+# Bundler alinhado ao seu ambiente
+RUN gem install bundler:2.4.10
+
+# Entrypoint: apenas bootstrap do projeto
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["bash"]

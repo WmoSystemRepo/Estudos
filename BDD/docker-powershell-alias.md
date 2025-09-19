@@ -44,8 +44,8 @@ docker compose run --rm node-18.12.1 npm -v
 ### 🥉 Opção 3 — Criar Atalhos no PowerShell (💎 Recomendado)
 
 A opção mais prática para o **dia a dia** é criar **funções no PowerShell**
-que redirecionam para os containers.  
-Assim, você usa `ruby`, `node`, `npm` normalmente, como se estivessem instalados no Windows.
+que montam automaticamente a **pasta atual ($PWD)** no container.  
+Assim, você usa `ruby`, `bundle`, `irb`, `node`, `npm` em qualquer subpasta dentro de `BDD/`.
 
 ---
 
@@ -81,35 +81,45 @@ Abra no bloco de notas:
 notepad $PROFILE
 ```
 
-Cole o seguinte conteúdo:
+Cole o seguinte conteúdo (com `Remove-Item alias` para evitar conflito com Node ou Ruby instalados localmente):
 
 ```powershell
+# --- Ruby / Bundler ---
+Remove-Item alias:ruby -ErrorAction SilentlyContinue
 function ruby {
-    docker compose run --rm ruby-3.2.2 ruby $args
+    docker run --rm -it -v "${PWD}:/app" -w /app ruby-3.2.2 ruby $args
 }
 
+Remove-Item alias:bundle -ErrorAction SilentlyContinue
+function bundle {
+    docker run --rm -it -v "${PWD}:/app" -w /app ruby-3.2.2 bundle $args
+}
+
+Remove-Item alias:irb -ErrorAction SilentlyContinue
+function irb {
+    docker run --rm -it -v "${PWD}:/app" -w /app ruby-3.2.2 irb $args
+}
+
+# --- Node.js / NPM ---
+Remove-Item alias:node -ErrorAction SilentlyContinue
 function node {
-    docker compose run --rm node-18.12.1 node $args
+    docker run --rm -it -v "${PWD}:/app" -w /app node-18.12.1 node $args
 }
 
+Remove-Item alias:npm -ErrorAction SilentlyContinue
 function npm {
-    docker compose run --rm node-18.12.1 npm $args
+    docker run --rm -it -v "${PWD}:/app" -w /app node-18.12.1 npm $args
 }
 ```
 
-💡 Você pode adicionar outros atalhos, como:
-
+💡 Se quiser, pode adicionar também para `yarn` e `pnpm`:
 ```powershell
 function yarn {
-    docker compose run --rm node-18.12.1 yarn $args
+    docker run --rm -it -v "${PWD}:/app" -w /app node-18.12.1 yarn $args
 }
 
 function pnpm {
-    docker compose run --rm node-18.12.1 pnpm $args
-}
-
-function irb {
-    docker compose run --rm ruby-3.2.2 irb $args
+    docker run --rm -it -v "${PWD}:/app" -w /app node-18.12.1 pnpm $args
 }
 ```
 
@@ -123,19 +133,21 @@ Depois de salvar, recarregue:
 
 ---
 
-### 5️⃣ Testar os comandos
-Agora você pode rodar normalmente no PowerShell:
+### 5️⃣ Testar em qualquer subpasta dentro de `BDD/`
 
+Exemplo:
 ```powershell
-ruby --version
-node --version
-npm -v
-yarn -v
-pnpm -v
-irb
+cd C:\Users\Mendes\Desktop\Clones\Wmo\Estudos\BDD\QAxe
+
+bundle init       # cria Gemfile em QAxe
+bundle -v
+ruby -v
+
+npm init -y       # cria package.json em QAxe
+node -v
 ```
 
-👉 Esses comandos estão rodando **dentro dos containers Docker**, mas para você é como se estivessem instalados no Windows.
+👉 Agora tudo funciona como se estivesse instalado localmente, mas na verdade roda dentro dos containers Docker.
 
 ---
 
@@ -143,12 +155,6 @@ irb
 
 - **Opção 1:** Boa para testes rápidos.  
 - **Opção 2:** Boa para rodar um comando isolado.  
-- **Opção 3:** Melhor para o dia a dia, integra o Docker ao seu terminal como se fosse ambiente local.  
+- **Opção 3:** Melhor para o dia a dia → com atalhos dinâmicos que funcionam em qualquer subpasta dentro de `BDD/`.  
 
-✨ Dessa forma, você tem um **ambiente de estudos completo** (Node.js + Ruby + outros) rodando via Docker,
-mas acessível direto pelo seu **PowerShell**.
-
----
-
-> 📘 **Dica:** Esta documentação foi criada para ser usada em projetos de estudo no GitHub.  
-> Salve este arquivo como **`docker-powershell-alias.md`** na raiz do seu repositório e consulte sempre que precisar.
+✨ Assim você tem um **ambiente de estudos completo** (Node.js + Ruby + Bundler), isolado no Docker, mas acessível direto pelo seu **PowerShell**.

@@ -10,7 +10,7 @@
 Este repositório foi criado para estudos de **BDD (Behavior Driven Development)**, utilizando containers **Docker**
 para rodar diferentes tecnologias (Node.js, Ruby, etc.) de forma isolada, mas acessíveis no seu terminal.
 
-> 📚 Saiba mais: [Martin Fowler — BDD](https://martinfowler.com/bliki/BDD.html) | [Cucumber Docs](https://cucumber.io/docs/bdd/)
+> 📚 Saiba mais: [Cucumber Docs](https://cucumber.io/docs/bdd/)
 
 ---
 
@@ -109,8 +109,9 @@ docker compose run --rm ruby-3.2.2 ruby --version
 docker compose run --rm node-18.12.1 node --version
 ```
 
-### 🥉 Opção 3: Criar Atalhos no PowerShell (recomendado)
-A opção mais prática é criar funções no PowerShell, para chamar `ruby`, `node`, `npm` como se estivessem instalados no Windows.
+### 🥉 Opção 3: Criar Atalhos no PowerShell (💎 Recomendado)
+A opção mais prática é criar funções no PowerShell, que montam automaticamente a **pasta atual ($PWD)** no container.  
+Assim, você pode rodar `ruby`, `bundle`, `irb`, `node`, `npm` em qualquer subpasta dentro de `BDD/`.
 
 📌 O guia detalhado dessa configuração está aqui:  
 👉 [Guia de Alias no PowerShell](docker-powershell-alias.md)

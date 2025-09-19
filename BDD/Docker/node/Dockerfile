@@ -4,19 +4,17 @@ FROM node:18.12.1
 # Ativar Corepack (Yarn/Pnpm)
 RUN corepack enable
 
-# Definir diretório de trabalho
+# Diretório de trabalho
 WORKDIR /usr/src/app
 
-# Copiar dependências
+# Copiar e instalar dependências
 COPY package*.json ./
-
-# Instalar dependências
 RUN npm install --silent
 
-# Copiar restante do código
+# Copiar o restante do código
 COPY . .
 
-# Expor porta
+# Expor porta do exemplo
 EXPOSE 3000
 
 # Comando padrão

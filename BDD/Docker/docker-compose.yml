@@ -1,20 +1,70 @@
 services:
+  ruby-3.2.2:
+    build: ./Ruby
+    container_name: ruby-3.2.2
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    environment:
+      - BOOTSTRAP=1
+    volumes:
+      - ./../:/app
+      - bundle_cache:/usr/local/bundle
+    depends_on:
+      - volume-restore
+
   node-18.12.1:
-    build:
-      context: ./Node
-    image: node-18.12.1:latest
+    build: ./node
     container_name: node-18.12.1
+    working_dir: /app
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
     volumes:
-      - ./Node:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm start
+      - ./../:/app
+    depends_on:
+      - volume-restore
 
-  ruby-3.2.2:
-    build:
-      context: ./Ruby
-    image: ruby-3.2.2:latest
-    container_name: ruby-3.2.2
-    tty: true
-    stdin_open: true
+  # Restaura volume no UP
+  volume-restore:
+    image: alpine
+    container_name: volume-restore
+    volumes:
+      - bundle_cache:/volume
+      - ./backups:/backup
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        mkdir -p /backup
+        if [ -f /backup/backup1.tar.gz ]; then
+          echo '🔄 Restaurando de backup1.tar.gz'
+          cd /volume && tar -xzf /backup/backup1.tar.gz
+        elif [ -f /backup/backup2.tar.gz ]; then
+          echo '🔄 Restaurando de backup2.tar.gz'
+          cd /volume && tar -xzf /backup/backup2.tar.gz
+        else
+          echo '⚠️ Nenhum backup encontrado. Volume inicializado vazio.'
+        fi
+
+  # Gera backup sob demanda
+  volume-backup:
+    image: alpine
+    container_name: volume-backup
+    volumes:
+      - bundle_cache:/volume
+      - ./backups:/backup
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        mkdir -p /backup
+        if [ -f /backup/backup1.tar.gz ]; then
+          mv /backup/backup1.tar.gz /backup/backup2.tar.gz
+        fi
+        echo '💾 Gerando backup1.tar.gz...'
+        cd /volume && tar -czf /backup/backup1.tar.gz .
+
+volumes:
+  bundle_cache:
